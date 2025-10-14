@@ -1,0 +1,747 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
+		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
+		C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA82E96881100F6B1F6 /* FirebaseAuth */; };
+		C851FDAB2E96881100F6B1F6 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDAA2E96881100F6B1F6 /* FirebaseCore */; };
+		C851FDAD2E96881100F6B1F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C851FD362E9686A000F6B1F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C851FD1E2E96869700F6B1F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C851FD252E96869700F6B1F6;
+			remoteInfo = Habood;
+		};
+		C851FD402E9686A000F6B1F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C851FD1E2E96869700F6B1F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C851FD252E96869700F6B1F6;
+			remoteInfo = Habood;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C851FD262E96869700F6B1F6 /* Habood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		90811DB82E9852CE001D280B /* Exceptions for "View" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodHistoryView.swift,
+				"MoodTrackerView .swift",
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		90811DB92E9852CE001D280B /* Exceptions for "View" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodHistoryView.swift,
+				"MoodTrackerView .swift",
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
+		90811DBE2E985389001D280B /* Exceptions for "Model" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodEntry.swift,
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		90811DBF2E985389001D280B /* Exceptions for "Model" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodEntry.swift,
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
+		90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodTrackerViewModel.swift,
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodTrackerViewModel.swift,
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
+		90D2E0FF2E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		90D2E1002E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
+		90D2E1022E9BC09B000C98FA /* Exceptions for "Habood" folder in "Habood" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C851FD252E96869700F6B1F6 /* Habood */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C851FD282E96869700F6B1F6 /* Habood */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90D2E1022E9BC09B000C98FA /* Exceptions for "Habood" folder in "Habood" target */,
+				90D2E0FF2E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodTests" target */,
+				90D2E1002E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodUITests" target */,
+			);
+			path = Habood;
+			sourceTree = "<group>";
+		};
+		C851FD382E9686A000F6B1F6 /* HaboodTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HaboodTests;
+			sourceTree = "<group>";
+		};
+		C851FD422E9686A000F6B1F6 /* HaboodUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HaboodUITests;
+			sourceTree = "<group>";
+		};
+		C851FD7D2E96871D00F6B1F6 /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C851FD7F2E96871D00F6B1F6 /* ModelView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */,
+				90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		C851FD842E96871D00F6B1F6 /* Model */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90811DBE2E985389001D280B /* Exceptions for "Model" folder in "HaboodTests" target */,
+				90811DBF2E985389001D280B /* Exceptions for "Model" folder in "HaboodUITests" target */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C851FD8E2E96871D00F6B1F6 /* View */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90811DB82E9852CE001D280B /* Exceptions for "View" folder in "HaboodTests" target */,
+				90811DB92E9852CE001D280B /* Exceptions for "View" folder in "HaboodUITests" target */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C851FD232E96869700F6B1F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */,
+				C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */,
+				C851FDAB2E96881100F6B1F6 /* FirebaseCore in Frameworks */,
+				C851FDAD2E96881100F6B1F6 /* FirebaseFirestore in Frameworks */,
+				C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD322E9686A000F6B1F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD3C2E9686A000F6B1F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C851FD1D2E96869700F6B1F6 = {
+			isa = PBXGroup;
+			children = (
+				C851FD282E96869700F6B1F6 /* Habood */,
+				C851FD382E9686A000F6B1F6 /* HaboodTests */,
+				C851FD422E9686A000F6B1F6 /* HaboodUITests */,
+				C851FD272E96869700F6B1F6 /* Products */,
+				C851FD7D2E96871D00F6B1F6 /* Services */,
+				C851FD7F2E96871D00F6B1F6 /* ModelView */,
+				C851FD842E96871D00F6B1F6 /* Model */,
+				C851FD8E2E96871D00F6B1F6 /* View */,
+			);
+			sourceTree = "<group>";
+		};
+		C851FD272E96869700F6B1F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C851FD262E96869700F6B1F6 /* Habood.app */,
+				C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */,
+				C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C851FD252E96869700F6B1F6 /* Habood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C851FD492E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "Habood" */;
+			buildPhases = (
+				C851FD222E96869700F6B1F6 /* Sources */,
+				C851FD232E96869700F6B1F6 /* Frameworks */,
+				C851FD242E96869700F6B1F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C851FD282E96869700F6B1F6 /* Habood */,
+				C851FD7D2E96871D00F6B1F6 /* Services */,
+				C851FD7F2E96871D00F6B1F6 /* ModelView */,
+				C851FD842E96871D00F6B1F6 /* Model */,
+				C851FD8E2E96871D00F6B1F6 /* View */,
+			);
+			name = Habood;
+			packageProductDependencies = (
+				C851FDA32E96877600F6B1F6 /* GoogleSignIn */,
+				C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */,
+				C851FDA82E96881100F6B1F6 /* FirebaseAuth */,
+				C851FDAA2E96881100F6B1F6 /* FirebaseCore */,
+				C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */,
+			);
+			productName = Habood;
+			productReference = C851FD262E96869700F6B1F6 /* Habood.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C851FD342E9686A000F6B1F6 /* HaboodTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C851FD4C2E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "HaboodTests" */;
+			buildPhases = (
+				C851FD312E9686A000F6B1F6 /* Sources */,
+				C851FD322E9686A000F6B1F6 /* Frameworks */,
+				C851FD332E9686A000F6B1F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C851FD372E9686A000F6B1F6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C851FD382E9686A000F6B1F6 /* HaboodTests */,
+			);
+			name = HaboodTests;
+			packageProductDependencies = (
+			);
+			productName = HaboodTests;
+			productReference = C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C851FD3E2E9686A000F6B1F6 /* HaboodUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C851FD4F2E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "HaboodUITests" */;
+			buildPhases = (
+				C851FD3B2E9686A000F6B1F6 /* Sources */,
+				C851FD3C2E9686A000F6B1F6 /* Frameworks */,
+				C851FD3D2E9686A000F6B1F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C851FD412E9686A000F6B1F6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C851FD422E9686A000F6B1F6 /* HaboodUITests */,
+			);
+			name = HaboodUITests;
+			packageProductDependencies = (
+			);
+			productName = HaboodUITests;
+			productReference = C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C851FD1E2E96869700F6B1F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					C851FD252E96869700F6B1F6 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					C851FD342E9686A000F6B1F6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C851FD252E96869700F6B1F6;
+					};
+					C851FD3E2E9686A000F6B1F6 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C851FD252E96869700F6B1F6;
+					};
+				};
+			};
+			buildConfigurationList = C851FD212E96869700F6B1F6 /* Build configuration list for PBXProject "Habood" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C851FD1D2E96869700F6B1F6;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C851FD272E96869700F6B1F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C851FD252E96869700F6B1F6 /* Habood */,
+				C851FD342E9686A000F6B1F6 /* HaboodTests */,
+				C851FD3E2E9686A000F6B1F6 /* HaboodUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C851FD242E96869700F6B1F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD332E9686A000F6B1F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD3D2E9686A000F6B1F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C851FD222E96869700F6B1F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD312E9686A000F6B1F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C851FD3B2E9686A000F6B1F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C851FD372E9686A000F6B1F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C851FD252E96869700F6B1F6 /* Habood */;
+			targetProxy = C851FD362E9686A000F6B1F6 /* PBXContainerItemProxy */;
+		};
+		C851FD412E9686A000F6B1F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C851FD252E96869700F6B1F6 /* Habood */;
+			targetProxy = C851FD402E9686A000F6B1F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C851FD472E9686A000F6B1F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C851FD482E9686A000F6B1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C851FD4A2E9686A000F6B1F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Habood/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.Habood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C851FD4B2E9686A000F6B1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Habood/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.Habood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C851FD4D2E9686A000F6B1F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habood.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habood";
+			};
+			name = Debug;
+		};
+		C851FD4E2E9686A000F6B1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habood.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habood";
+			};
+			name = Release;
+		};
+		C851FD502E9686A000F6B1F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Habood;
+			};
+			name = Debug;
+		};
+		C851FD512E9686A000F6B1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Habood;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C851FD212E96869700F6B1F6 /* Build configuration list for PBXProject "Habood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C851FD472E9686A000F6B1F6 /* Debug */,
+				C851FD482E9686A000F6B1F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C851FD492E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "Habood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C851FD4A2E9686A000F6B1F6 /* Debug */,
+				C851FD4B2E9686A000F6B1F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C851FD4C2E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "HaboodTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C851FD4D2E9686A000F6B1F6 /* Debug */,
+				C851FD4E2E9686A000F6B1F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C851FD4F2E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "HaboodUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C851FD502E9686A000F6B1F6 /* Debug */,
+				C851FD512E9686A000F6B1F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C851FDA32E96877600F6B1F6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		C851FDA82E96881100F6B1F6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C851FDAA2E96881100F6B1F6 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C851FD1E2E96869700F6B1F6 /* Project object */;
+}
