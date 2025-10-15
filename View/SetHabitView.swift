@@ -8,48 +8,59 @@
 import SwiftUI
 
 
+
 struct SetHabitView: View {
     @Binding var hasHabit: Bool
-
-    @State private var habitName: String = ""
-    @State private var previewIndex = 0
-    private let options = ["Daily", "Weekly", "Fortnightly", "Monthly"]
-    let loadJson = LoadFile()
-
+    @StateObject private var habitTrackerViewModel = HabitTrackerViewModel()
+    
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
-        var newHabit = Habit(name: habitName, frequency: options[previewIndex])
         VStack {
             Text("Set Habit")
                 .font(.largeTitle).fontWeight(.bold)
-                .padding(100)
-
+                .padding(.top, 32)
+            
             Form {
                 Section(header: Text("Habit")) {
-                    TextField("Enter a habit", text: $habitName)
+                    TextField("Enter a habit", text: $habitTrackerViewModel.habitName)
+                        .textInputAutocapitalization(.words)
                 }
+                
                 Section(header: Text("Frequency")) {
-                    Picker("Set Frequency", selection: $previewIndex) {
-                        ForEach(0 ..< 4) {
-                            Text(self .options[$0])
+                    Picker("Set Frequency", selection: $habitTrackerViewModel.frequencyIndex) {
+                        ForEach(habitTrackerViewModel.frequencyOptions.indices, id: \.self) { i in
+                            Text(habitTrackerViewModel.frequencyOptions[i]).tag(i)
                         }
                     }
                 }
-            }
-
-            Button("Set Habit") {
                 
-                loadJson.saveToJsonFile(newHabit)
-                hasHabit = true
-                dismiss()   // go back to HabitTrackerView
+                if let msg = habitTrackerViewModel.saveMessage, !msg.isEmpty {
+                    Section {
+                        Text(msg)
+                            .font(.footnote)
+                            .foregroundColor(msg.hasPrefix("Failed") ? .red : .green)
+                    }
+                }
             }
-            .onAppear {
+            
+            Button {
+                habitTrackerViewModel.save { success in
+                    if success {
+                        hasHabit = true
+                        dismiss()
+                    }
+                }
+            } label: {
+                HStack {
+                    if habitTrackerViewModel.isSaving { ProgressView().padding(.trailing, 6) }
+                    Text("Save Habit").fontWeight(.heavy)
+                }
             }
-            .fontWeight(.heavy)
+            .disabled(habitTrackerViewModel.isSaving || habitTrackerViewModel.habitName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             .buttonStyle(ShadowButtonStyle())
+            .padding(.vertical, 12)
         }
     }
-    
 }
 

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9010258D2EA085C10089FB6C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9010258C2EA085C10089FB6C /* FirebaseCore */; };
+		9010258F2EA085CC0089FB6C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9010258E2EA085CC0089FB6C /* FirebaseAuth */; };
+		901025912EA085DB0089FB6C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 901025902EA085DB0089FB6C /* FirebaseFirestore */; };
+		901025932EA085E80089FB6C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 901025922EA085E80089FB6C /* FirebaseAnalytics */; };
+		901025952EA087A80089FB6C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 901025942EA087A80089FB6C /* FirebaseCore */; };
+		901025972EA087B10089FB6C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 901025962EA087B10089FB6C /* FirebaseAuth */; };
+		901025992EA087BB0089FB6C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 901025982EA087BB0089FB6C /* FirebaseFirestore */; };
+		9010259B2EA087CC0089FB6C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9010259A2EA087CC0089FB6C /* FirebaseAnalytics */; };
 		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
 		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
-		C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA82E96881100F6B1F6 /* FirebaseAuth */; };
-		C851FDAB2E96881100F6B1F6 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDAA2E96881100F6B1F6 /* FirebaseCore */; };
-		C851FDAD2E96881100F6B1F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		901025A12EA08D6E0089FB6C /* Exceptions for "ModelView" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodTrackerViewModel.swift,
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		901025A22EA08D6E0089FB6C /* Exceptions for "ModelView" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodTrackerViewModel.swift,
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
+		901025A72EA092B70089FB6C /* Exceptions for "HaboodTests" folder in "Habood" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodServiceMock.swift,
+			);
+			target = C851FD252E96869700F6B1F6 /* Habood */;
+		};
 		90811DB82E9852CE001D280B /* Exceptions for "View" folder in "HaboodTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -68,20 +94,6 @@
 			);
 			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
 		};
-		90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MoodTrackerViewModel.swift,
-			);
-			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
-		};
-		90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MoodTrackerViewModel.swift,
-			);
-			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
-		};
 		90D2E0FF2E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -103,6 +115,22 @@
 			);
 			target = C851FD252E96869700F6B1F6 /* Habood */;
 		};
+		90EBDC8C2EA06CD600A497B0 /* Exceptions for "Services" folder in "HaboodTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodService.swift,
+				ShareSheet.swift,
+			);
+			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
+		};
+		90EBDC8D2EA06CD600A497B0 /* Exceptions for "Services" folder in "HaboodUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MoodService.swift,
+				ShareSheet.swift,
+			);
+			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -118,6 +146,9 @@
 		};
 		C851FD382E9686A000F6B1F6 /* HaboodTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				901025A72EA092B70089FB6C /* Exceptions for "HaboodTests" folder in "Habood" target */,
+			);
 			path = HaboodTests;
 			sourceTree = "<group>";
 		};
@@ -128,14 +159,18 @@
 		};
 		C851FD7D2E96871D00F6B1F6 /* Services */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				90EBDC8C2EA06CD600A497B0 /* Exceptions for "Services" folder in "HaboodTests" target */,
+				90EBDC8D2EA06CD600A497B0 /* Exceptions for "Services" folder in "HaboodUITests" target */,
+			);
 			path = Services;
 			sourceTree = "<group>";
 		};
 		C851FD7F2E96871D00F6B1F6 /* ModelView */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */,
-				90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */,
+				901025A12EA08D6E0089FB6C /* Exceptions for "ModelView" folder in "HaboodTests" target */,
+				901025A22EA08D6E0089FB6C /* Exceptions for "ModelView" folder in "HaboodUITests" target */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -166,10 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */,
-				C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */,
-				C851FDAB2E96881100F6B1F6 /* FirebaseCore in Frameworks */,
-				C851FDAD2E96881100F6B1F6 /* FirebaseFirestore in Frameworks */,
+				9010258D2EA085C10089FB6C /* FirebaseCore in Frameworks */,
+				901025932EA085E80089FB6C /* FirebaseAnalytics in Frameworks */,
 				C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */,
+				901025912EA085DB0089FB6C /* FirebaseFirestore in Frameworks */,
+				9010258F2EA085CC0089FB6C /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,12 +220,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901025952EA087A80089FB6C /* FirebaseCore in Frameworks */,
+				901025972EA087B10089FB6C /* FirebaseAuth in Frameworks */,
+				9010259B2EA087CC0089FB6C /* FirebaseAnalytics in Frameworks */,
+				901025992EA087BB0089FB6C /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90D2E2CE2EA06433000C98FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C851FD1D2E96869700F6B1F6 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +248,7 @@
 				C851FD7F2E96871D00F6B1F6 /* ModelView */,
 				C851FD842E96871D00F6B1F6 /* Model */,
 				C851FD8E2E96871D00F6B1F6 /* View */,
+				90D2E2CE2EA06433000C98FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,9 +288,10 @@
 			packageProductDependencies = (
 				C851FDA32E96877600F6B1F6 /* GoogleSignIn */,
 				C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */,
-				C851FDA82E96881100F6B1F6 /* FirebaseAuth */,
-				C851FDAA2E96881100F6B1F6 /* FirebaseCore */,
-				C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */,
+				9010258C2EA085C10089FB6C /* FirebaseCore */,
+				9010258E2EA085CC0089FB6C /* FirebaseAuth */,
+				901025902EA085DB0089FB6C /* FirebaseFirestore */,
+				901025922EA085E80089FB6C /* FirebaseAnalytics */,
 			);
 			productName = Habood;
 			productReference = C851FD262E96869700F6B1F6 /* Habood.app */;
@@ -289,6 +338,10 @@
 			);
 			name = HaboodUITests;
 			packageProductDependencies = (
+				901025942EA087A80089FB6C /* FirebaseCore */,
+				901025962EA087B10089FB6C /* FirebaseAuth */,
+				901025982EA087BB0089FB6C /* FirebaseFirestore */,
+				9010259A2EA087CC0089FB6C /* FirebaseAnalytics */,
 			);
 			productName = HaboodUITests;
 			productReference = C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */;
@@ -328,7 +381,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C851FD272E96869700F6B1F6 /* Products */;
@@ -439,6 +492,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 9CSS6V8RWH;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -503,6 +557,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 9CSS6V8RWH;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -697,6 +752,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
 		C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -705,17 +768,49 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.4.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9010258C2EA085C10089FB6C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		9010258E2EA085CC0089FB6C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		901025902EA085DB0089FB6C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		901025922EA085E80089FB6C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		901025942EA087A80089FB6C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		901025962EA087B10089FB6C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		901025982EA087BB0089FB6C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9010259A2EA087CC0089FB6C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		C851FDA32E96877600F6B1F6 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
@@ -725,21 +820,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C851FDA22E96877600F6B1F6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		C851FDA82E96881100F6B1F6 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		C851FDAA2E96881100F6B1F6 /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		C851FDAC2E96881100F6B1F6 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C851FDA72E96881100F6B1F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

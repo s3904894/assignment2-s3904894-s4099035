@@ -4,12 +4,11 @@
 //
 //  Created by yunlong chen on 2025/8/31.
 
-
 import SwiftUI
 import FirebaseAuth
 
 struct MoodHistoryView: View {
-    @State private var moods: [MoodEntryFirebase] = []
+    @State private var moods: [MoodEntry] = []
     private let moodService = MoodService()
     @State private var isLoading = true
     @State private var errorMessage: String? = nil
@@ -49,7 +48,6 @@ struct MoodHistoryView: View {
             }
         }
         .onAppear {
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 fetchMoods()
             }
@@ -57,7 +55,7 @@ struct MoodHistoryView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    // MARK: - Fetch moods from Firebase
+    //  Fetch moods from Firebase
     private func fetchMoods() {
         guard let user = Auth.auth().currentUser else {
             self.errorMessage = "User not logged in."
@@ -77,7 +75,17 @@ struct MoodHistoryView: View {
                     for mood in fetchedMoods {
                         print(" \(mood.mood) | Intensity: \(mood.intensity)")
                     }
-                    self.moods = fetchedMoods
+
+                    //  Convert Firebase model -> local MoodEntry
+                    self.moods = fetchedMoods.map { firebaseMood in
+                        MoodEntry(
+                            id: firebaseMood.id,
+                            mood: firebaseMood.mood,
+                            intensity: firebaseMood.intensity,
+                            createdAt: firebaseMood.createdAt
+                        )
+                    }
+
                 } else {
                     self.errorMessage = "No data returned from Firestore."
                 }

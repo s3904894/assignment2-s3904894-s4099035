@@ -58,6 +58,4 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(AppUser(id: "EyRkpR2k12hc3bo5xgV6hi3Y4oG3", firstName: "Yunlong", email: "s4099035@student.rmit.edu.au"))
-}
+

@@ -2,20 +2,29 @@
 //
 //  Created by Yunlong Chen on 2025/10/10.
 //
-
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-/// Service for managing mood data in Firebase Firestore
-class MoodService {
+//Protocol for dependency injection
+protocol MoodServiceProtocol {
+    /// Save a mood entry
+    func saveMood(mood: String, intensity: Int, completion: @escaping (Error?) -> Void)
+
+    /// Fetch mood entries (for history view)
+    func fetchMoods(completion: @escaping ([MoodEntry]?, Error?) -> Void)
+}
+
+// Service Implementation
+final class MoodService: MoodServiceProtocol {
     private let db = Firestore.firestore()
 
-    /// Save a mood entry to Firestore (only if user is logged in)
+    // Save mood
     func saveMood(mood: String, intensity: Int, completion: @escaping (Error?) -> Void) {
         guard let user = Auth.auth().currentUser else {
-            print(" User not logged in. Cannot save mood.")
-            completion(NSError(domain: "AuthError", code: 401, userInfo: [NSLocalizedDescriptionKey: "Please sign in to save moods."]))
+            print("User not logged in. Cannot save mood.")
+            completion(NSError(domain: "AuthError", code: 401,
+                               userInfo: [NSLocalizedDescriptionKey: "Please sign in to save moods."]))
             return
         }
 
@@ -28,20 +37,21 @@ class MoodService {
 
         db.collection("moods").addDocument(data: data) { error in
             if let error = error {
-                print(" Failed to save mood: \(error.localizedDescription)")
+                print("Failed to save mood: \(error.localizedDescription)")
                 completion(error)
             } else {
-                print(" Mood '\(mood)' saved successfully for user \(user.uid).")
+                print("Mood '\(mood)' saved successfully for user \(user.uid).")
                 completion(nil)
             }
         }
     }
 
-    /// Fetch all mood entries for the current user (login required)
-    func fetchMoods(completion: @escaping ([MoodEntryFirebase]?, Error?) -> Void) {
+    //  Fetch moods
+    func fetchMoods(completion: @escaping ([MoodEntry]?, Error?) -> Void) {
         guard let user = Auth.auth().currentUser else {
-            print(" User not logged in. Cannot fetch moods.")
-            completion([], NSError(domain: "AuthError", code: 401, userInfo: [NSLocalizedDescriptionKey: "Please sign in to view moods."]))
+            print("User not logged in. Cannot fetch moods.")
+            completion(nil, NSError(domain: "AuthError", code: 401,
+                                    userInfo: [NSLocalizedDescriptionKey: "Please sign in to view moods."]))
             return
         }
 
@@ -50,14 +60,14 @@ class MoodService {
             .order(by: "createdAt", descending: true)
             .getDocuments { snapshot, error in
                 if let error = error {
-                    print(" Error fetching moods: \(error.localizedDescription)")
+                    print("Error fetching moods: \(error.localizedDescription)")
                     completion(nil, error)
                     return
                 }
 
-                let moods = snapshot?.documents.compactMap { doc -> MoodEntryFirebase? in
+                let moods = snapshot?.documents.compactMap { doc -> MoodEntry? in
                     let data = doc.data()
-                    return MoodEntryFirebase(
+                    return MoodEntry(
                         id: doc.documentID,
                         mood: data["mood"] as? String ?? "Unknown",
                         intensity: data["intensity"] as? Int ?? 0,
@@ -65,16 +75,9 @@ class MoodService {
                     )
                 } ?? []
 
-                print(" Loaded \(moods.count) mood entries for user \(user.uid).")
+                print("Loaded \(moods.count) mood entries for user \(user.uid).")
                 completion(moods, nil)
             }
     }
 }
 
-/// Firebase mood model (for reading Firestore data)
-struct MoodEntryFirebase: Identifiable {
-    let id: String
-    let mood: String
-    let intensity: Int
-    let createdAt: Date
-}

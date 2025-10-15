@@ -12,52 +12,60 @@ import FirebaseAuth
 @MainActor
 final class MoodTrackerViewModel: ObservableObject {
     @Published var selectedMood: String = ""
-    @Published var intensity: Int = 3 // range: 1–5
+    @Published var intensity: Int = 3 // range 1–5
     @Published var saveMessage: String = ""
-    
-    private let moodService = MoodService()
-    
-    // Available moods with emojis
+
+    private let moodService: MoodServiceProtocol   // Using Protocol types
+
+    //  Constructor: Injectable for Mock or real Firebase
+    init(moodService: MoodServiceProtocol = MoodService()) {
+        self.moodService = moodService
+    }
+
+    // Mood options
     let moods = ["😀 Happy", "😢 Sad", "😡 Angry", "😴 Tired", "😰 Anxious"]
     private var currentIndex = 0
-    
-    // MARK: - Mood Selection
+
+    // Mood Selection
     func setMood(_ mood: String) {
         selectedMood = mood
         if let index = moods.firstIndex(of: mood) {
             currentIndex = index
         }
     }
-    
-    // MARK: - Swipe gesture to change mood
+
     func nextMood() {
         currentIndex = (currentIndex + 1) % moods.count
         selectedMood = moods[currentIndex]
     }
-    
+
     func previousMood() {
         currentIndex = (currentIndex - 1 + moods.count) % moods.count
         selectedMood = moods[currentIndex]
     }
-    
-    // MARK: - Adjust intensity
+
+    // Intensity
     func setIntensity(_ value: Int) {
         intensity = max(1, min(5, value))
     }
-    
-    // MARK: - Save mood to Firebase
+
+    // Save Mood
     func saveMood() {
         guard !selectedMood.isEmpty else {
-            saveMessage = " Please select a mood before saving."
+            saveMessage = "Please select a mood before saving."
             return
         }
-        
+
+        // Temporary message
+        saveMessage = "Saving mood..."
+
+        // Save mood to Firebase or Mock
         moodService.saveMood(mood: selectedMood, intensity: intensity) { [weak self] error in
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 if let error = error {
-                    self?.saveMessage = " Failed to save: \(error.localizedDescription)"
+                    self?.saveMessage = "Failed to save: \(error.localizedDescription)"
                 } else {
-                    self?.saveMessage = " Mood saved successfully!"
+                    self?.saveMessage = "Mood saved successfully!"
                 }
             }
         }
