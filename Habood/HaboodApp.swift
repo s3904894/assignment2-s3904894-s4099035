@@ -10,6 +10,8 @@ import SwiftData
 import FirebaseCore
 import GoogleSignIn
 
+///Runs the Habood app. Configures Firebase and Google Sign-In at launch. Handles SwiftData for settings and handles takes you straight to the ``SignInvView``
+
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {

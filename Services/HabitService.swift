@@ -9,6 +9,12 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+private struct HabitDoc: Codable{
+    let habit: String
+    let frequency: String
+    let createdAt: Date
+}
+
 final class HabitService {
     private let db = Firestore.firestore()
 
@@ -20,22 +26,24 @@ final class HabitService {
                                userInfo: [NSLocalizedDescriptionKey: "Please sign in to save habits."]))
             return
         }
-        
-        let data: [String: Any] = [
-            "userId": user.uid,
-            "habit": name,
-            "frequency": frequency,
-            "createdAt": Timestamp(date: Date())
-        ]
-
-        db.collection("habits").addDocument(data: data) { error in
-            if let error = error {
-                print(" Failed to save habit: \(error.localizedDescription)")
-                completion(error)
-            } else {
-                print(" Habit '\(name)' saved successfully for user \(user.uid).")
-                completion(nil)
+        let now = Date()
+        let doc = HabitDoc(habit: name, frequency: frequency, createdAt: now)
+        do {
+            let wrapped = try FirebaseCrypto.shared.wrapDocument(doc, aad: "habits")
+            var data: [String: Any] = wrapped
+            data["userId"] = user.uid
+            data["createdAt"] = Timestamp(date: now)
+            db.collection("habits").addDocument(data: data) { error in
+                if let error = error {
+                    print(" Failed to save habit: \(error.localizedDescription)")
+                    completion(error)
+                } else {
+                    print(" Habit '\(name)' saved successfully for user \(user.uid).")
+                    completion(nil)
+                }
             }
+        } catch {
+            completion(error)
         }
     }
 
@@ -46,35 +54,48 @@ final class HabitService {
                                    userInfo: [NSLocalizedDescriptionKey: "Please sign in to view habits."]))
             return
         }
-
         db.collection("habits")
             .whereField("userId", isEqualTo: user.uid)
             .order(by: "createdAt", descending: true)
             .getDocuments { snapshot, error in
                 if let error = error {
-                    print(" Error fetching habits: \(error.localizedDescription)")
                     completion(nil, error)
                     return
                 }
-
-                let habits: [HabitEntryFirebase] = snapshot?.documents.compactMap { doc in
+                guard let snapshot = snapshot else {
+                    completion([], nil)
+                    return
+                }
+                let habits: [HabitEntryFirebase] = snapshot.documents.compactMap { doc in
                     let data = doc.data()
-                    guard
-                        let habit = data["habit"] as? String,
-                        let frequency = data["frequency"] as? String
-                    else {
-                        return nil
+                    if let payload = data["payload"] as? [String: Any] {
+                        do {
+                            let hd: HabitDoc = try FirebaseCrypto.shared.decrypt(payload, as: HabitDoc.self, aad: "habits")
+                            let created = (data["createdAt"] as? Timestamp)?.dateValue() ?? hd.createdAt
+                            return HabitEntryFirebase(
+                                id: doc.documentID,
+                                userId: data["userId"] as? String ?? "",
+                                habit: hd.habit,
+                                frequency: hd.frequency,
+                                createdAt: created
+                            )
+                        } catch {
+                            print("Decrypt failed for \(doc.documentID): \(error.localizedDescription)")
+                            return nil
+                        }
                     }
-                    return HabitEntryFirebase(
-                        id: doc.documentID,
-                        userId: data["userId"] as? String ?? "",
-                        habit: habit,
-                        frequency: frequency,
-                        createdAt: (data["createdAt"] as? Timestamp)?.dateValue() ?? Date()
-                    )
-                } ?? []
-
-                print(" Loaded \(habits.count) habit entries for user \(user.uid).")
+                    if let habit = data["habit"] as? String,
+                       let frequency = data["frequency"] as? String {
+                        return HabitEntryFirebase(
+                            id: doc.documentID,
+                            userId: data["userId"] as? String ?? "",
+                            habit: habit,
+                            frequency: frequency,
+                            createdAt: (data["createdAt"] as? Timestamp)?.dateValue() ?? Date()
+                        )
+                    }
+                    return nil
+                }
                 completion(habits, nil)
             }
     }

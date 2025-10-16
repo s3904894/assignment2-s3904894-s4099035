@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C83363A12EA10AF1003C9C0B /* HaboodDocumentationCatalog.docc in Sources */ = {isa = PBXBuildFile; fileRef = C83363A02EA10AF1003C9C0B /* HaboodDocumentationCatalog.docc */; };
 		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
 		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
 		C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA82E96881100F6B1F6 /* FirebaseAuth */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C83363A02EA10AF1003C9C0B /* HaboodDocumentationCatalog.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = HaboodDocumentationCatalog.docc; sourceTree = "<group>"; };
 		C851FD262E96869700F6B1F6 /* Habood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,25 +59,25 @@
 		90811DBE2E985389001D280B /* Exceptions for "Model" folder in "HaboodTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MoodEntry.swift,
+				MoodEntryModel.swift,
 			);
 			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
 		};
 		90811DBF2E985389001D280B /* Exceptions for "Model" folder in "HaboodUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MoodEntry.swift,
+				MoodEntryModel.swift,
 			);
 			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
 		};
-		90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */ = {
+		90811DC42E9853AF001D280B /* Exceptions for "ViewModel" folder in "HaboodTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				MoodTrackerViewModel.swift,
 			);
 			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
 		};
-		90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */ = {
+		90811DC52E9853AF001D280B /* Exceptions for "ViewModel" folder in "HaboodUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				MoodTrackerViewModel.swift,
@@ -131,13 +133,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		C851FD7F2E96871D00F6B1F6 /* ModelView */ = {
+		C851FD7F2E96871D00F6B1F6 /* ViewModel */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				90811DC42E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodTests" target */,
-				90811DC52E9853AF001D280B /* Exceptions for "ModelView" folder in "HaboodUITests" target */,
+				90811DC42E9853AF001D280B /* Exceptions for "ViewModel" folder in "HaboodTests" target */,
+				90811DC52E9853AF001D280B /* Exceptions for "ViewModel" folder in "HaboodUITests" target */,
 			);
-			path = ModelView;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C851FD842E96871D00F6B1F6 /* Model */ = {
@@ -193,12 +195,13 @@
 		C851FD1D2E96869700F6B1F6 = {
 			isa = PBXGroup;
 			children = (
+				C83363A02EA10AF1003C9C0B /* HaboodDocumentationCatalog.docc */,
 				C851FD282E96869700F6B1F6 /* Habood */,
 				C851FD382E9686A000F6B1F6 /* HaboodTests */,
 				C851FD422E9686A000F6B1F6 /* HaboodUITests */,
 				C851FD272E96869700F6B1F6 /* Products */,
 				C851FD7D2E96871D00F6B1F6 /* Services */,
-				C851FD7F2E96871D00F6B1F6 /* ModelView */,
+				C851FD7F2E96871D00F6B1F6 /* ViewModel */,
 				C851FD842E96871D00F6B1F6 /* Model */,
 				C851FD8E2E96871D00F6B1F6 /* View */,
 			);
@@ -232,7 +235,7 @@
 			fileSystemSynchronizedGroups = (
 				C851FD282E96869700F6B1F6 /* Habood */,
 				C851FD7D2E96871D00F6B1F6 /* Services */,
-				C851FD7F2E96871D00F6B1F6 /* ModelView */,
+				C851FD7F2E96871D00F6B1F6 /* ViewModel */,
 				C851FD842E96871D00F6B1F6 /* Model */,
 				C851FD8E2E96871D00F6B1F6 /* View */,
 			);
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83363A12EA10AF1003C9C0B /* HaboodDocumentationCatalog.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
