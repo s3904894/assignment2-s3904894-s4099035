@@ -14,7 +14,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            Text("Mood Logger")
+            Text("Habood")
                 .font(.largeTitle).bold()
             
             Text("Sign in with your Google account to get started.")

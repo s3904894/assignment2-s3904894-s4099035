@@ -5,70 +5,55 @@
 //  Created by Stephan Karatselios on 28/8/2025.
 //
 
-import FirebaseAuth
 import SwiftUI
 
 struct HabitTrackerView: View {
-    @State private var habit = Habit()
-    @State private var hasHabit = false
+    @Environment(\.modelContext) private var context
+    @StateObject private var viewModel = HabitTrackerViewModel()
     @State private var isPresentingSetHabit = false
-    @StateObject private var store = LoadFile()
-    
-    @State private var habits: [HabitEntryFirebase] = []
-    private let habitService = HabitService()
-    @State private var isLoading = true
-    @State private var errorMessage: String? = nil
-    
+
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center) {
+            VStack {
                 Text("Habit Tracker")
                     .font(.largeTitle).fontWeight(.bold)
-                    .padding(100)
-            }
-            VStack(alignment: .center) {
-                if hasHabit, !habit.name.isEmpty {
-                    Text(habit.name)
-                    Text(habit.frequency)
-                }
-            }
-            VStack {
-                Button("Set Habit") { isPresentingSetHabit = true
-                }
-                .fontWeight(.heavy)
-                .buttonStyle(ShadowButtonStyle())
-            }
-            NavigationLink(isActive: $isPresentingSetHabit) {
-                SetHabitView(hasHabit: $hasHabit)
-            } label: { EmptyView() }
-        }
-    }
-    
-    private func fetchHabits() {
-        guard let user = Auth.auth().currentUser else {
-            self.errorMessage = "User not logged in."
-            self.isLoading = false
-            return
-        }
+                    .padding(.top, 40)
 
-        print(" Fetching habits for user: \(user.uid)")
-
-        habitService.fetchHabits() { fetchedHabits, error in
-            DispatchQueue.main.async {
-                self.isLoading = false
-                if let error = error {
-                    self.errorMessage = "Failed to fetch habits: \(error.localizedDescription)"
-                } else if let fetchedHabits = fetchedHabits {
-                    print(" Retrieved \(fetchedHabits.count) habit(s) from Firestore.")
-                    for habit in fetchedHabits {
-                        print(" \(habit.habit) | Intensity: \(habit.frequency)")
-                    }
-                    self.habits = fetchedHabits
+                if viewModel.isLoading {
+                    ProgressView("Loading your habits...").padding()
+                } else if let err = viewModel.errorMessage {
+                    Text(err).foregroundStyle(.red).padding()
+                } else if viewModel.habits.isEmpty {
+                    Spacer(); Text("No habits yet").foregroundStyle(.secondary); Spacer()
                 } else {
-                    self.errorMessage = "No data returned from Firestore."
+                    List {
+                        ForEach(viewModel.habits) { h in
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(h.habit).font(.headline)
+                                Text("Frequency: \(h.frequency)").font(.subheadline)
+                                Text("Date: \(h.createdAt.formatted(date: .abbreviated, time: .shortened))")
+                                    .font(.caption).foregroundStyle(.secondary)
+                            }
+                        }
+                        .onDelete(perform: viewModel.delete)
+                    }
+                    .listStyle(.inset)
                 }
+
+                Button("Set Habit") { isPresentingSetHabit = true }
+                    .fontWeight(.heavy)
+                    .buttonStyle(ShadowButtonStyle())
+                    .padding(.bottom, 24)
+
+                NavigationLink(isActive: $isPresentingSetHabit) {
+                    SetHabitView().environmentObject(viewModel)
+                } label: { EmptyView() }
             }
+        }
+        .onAppear {
+            // inject modelContext into VM if needed
+            viewModel.modelContext = context
+            viewModel.fetchHabits()
         }
     }
 }
-

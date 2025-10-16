@@ -7,49 +7,53 @@
 
 import SwiftUI
 
-
 struct SetHabitView: View {
-    @Binding var hasHabit: Bool
-
-    @State private var habitName: String = ""
-    @State private var previewIndex = 0
-    private let options = ["Daily", "Weekly", "Fortnightly", "Monthly"]
-    let loadJson = LoadFile()
-
+    @EnvironmentObject var viewModel: HabitTrackerViewModel
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        var newHabit = Habit(name: habitName, frequency: options[previewIndex])
         VStack {
             Text("Set Habit")
                 .font(.largeTitle).fontWeight(.bold)
-                .padding(100)
+                .padding(.top, 32)
 
             Form {
-                Section(header: Text("Habit")) {
-                    TextField("Enter a habit", text: $habitName)
+                Section("Habit") {
+                    TextField("Enter a habit", text: $viewModel.habitName)
+                        .textInputAutocapitalization(.words)
                 }
-                Section(header: Text("Frequency")) {
-                    Picker("Set Frequency", selection: $previewIndex) {
-                        ForEach(0 ..< 4) {
-                            Text(self .options[$0])
+                Section("Frequency") {
+                    Picker("Set Frequency", selection: $viewModel.frequencyIndex) {
+                        ForEach(viewModel.frequencyOptions.indices, id: \.self) { i in
+                            Text(viewModel.frequencyOptions[i]).tag(i)
                         }
                     }
                 }
+                if let msg = viewModel.saveMessage, !msg.isEmpty {
+                    Section { Text(msg).font(.footnote)
+                            .foregroundColor(msg.hasPrefix("Failed") ? .red : .green) }
+                }
             }
 
-            Button("Set Habit") {
-                
-                loadJson.saveToJsonFile(newHabit)
-                hasHabit = true
-                dismiss()   // go back to HabitTrackerView
+            Button {
+                viewModel.saveHabit {
+                    ok in if ok { dismiss()
+                    }
+                }
             }
-            .onAppear {
+            label: {
+                HStack {
+                    if viewModel.isSaving {
+                        ProgressView().padding(.trailing, 6)
+                    }
+                    Text("Save Habit").fontWeight(.heavy)
+                }
             }
-            .fontWeight(.heavy)
+            .disabled(viewModel.isSaving || viewModel.habitName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             .buttonStyle(ShadowButtonStyle())
+            .padding(.vertical, 12)
         }
     }
-    
 }
+
 

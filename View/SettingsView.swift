@@ -5,54 +5,92 @@
 //  Created by Stephan Karatselios on 28/8/2025.
 //
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
-    // persisted user prefs
-    @AppStorage("defaultFrequency") private var darkMode = false
-    @AppStorage("notificationsEnabled") private var notificationsEnabled = false
-    @AppStorage("hapticsEnabled") private var hapticsEnabled = true
+    @Environment(\.modelContext) private var context
+    @Query private var rows: [SettingsItem]
 
-    private let frequencies = ["Daily", "Weekly", "Fortnightly", "Monthly"]
+    private var settings: SettingsItem {
+        if let setting = rows.first {
+            return setting
+        }
+        let setting = SettingsItem()
+        context.insert(setting)
+        try? context.save()
+        return setting
+    }
 
     var body: some View {
         NavigationStack {
             Form {
-                Section("Background") {
-                    Toggle("Dark Mode", isOn: $darkMode)
+                Section("Appearance") {
+                    Toggle("Dark Mode", isOn: Binding(
+                        get: {
+                            settings.darkMode
+                        },
+                        set: {
+                            settings.darkMode = $0
+                            try? context.save()
+                        }
+                    ))
                 }
 
                 Section("Notifications") {
-                    Toggle("Enable reminders", isOn: $notificationsEnabled)
-                    Text("Scheduling to be added when Firebase/SwiftData are in place.")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                }
-
-                Section("General") {
-                    Toggle("Haptics", isOn: $hapticsEnabled)
-                    Button(role: .destructive) {
-                        resetSettings()
-                    } label: {
-                        Text("Reset settings")
-                    }
+                    Toggle("Enable habit reminders", isOn: Binding(
+                        get: {
+                            settings.notifications
+                        },
+                        set: {
+                            settings.notifications = $0
+                            saveAndReschedule()
+                        }
+                    ))
+                    DatePicker(
+                        "Reminder time",
+                        selection: Binding(
+                            get: {
+                                Calendar.current.date(from: DateComponents(
+                                    hour: settings.reminderHour,
+                                    minute: settings.reminderMinute
+                                )) ?? Date()
+                            },
+                            set: { date in
+                                let calendar = Calendar.current.dateComponents([.hour,.minute], from: date)
+                                settings.reminderHour = calendar.hour ?? 9
+                                settings.reminderMinute = calendar.minute ?? 0
+                                saveAndReschedule()
+                            }
+                        ),
+                        displayedComponents: .hourAndMinute
+                    )
                 }
 
                 Section {
-                    HStack {
-                        Text("App version")
-                        Spacer()
-                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—")
-                            .foregroundStyle(.secondary)
-                    }
+                    Button(role: .destructive, action: resetSettings) { Text("Reset settings") }
                 }
             }
             .navigationTitle("Settings")
         }
     }
 
+    private func saveAndReschedule() {
+        try? context.save()
+        HabitService().fetchHabits { items, _ in
+            SettingsViewModel.viewModel.saveSchedule(
+                habits: items ?? [],
+                hour: settings.reminderHour,
+                minute: settings.reminderMinute,
+                enabled: settings.notifications
+            )
+        }
+    }
+
     private func resetSettings() {
-        UserDefaults.standard.removeObject(forKey: "defaultFrequency")
-        UserDefaults.standard.removeObject(forKey: "notificationsEnabled")
-        UserDefaults.standard.removeObject(forKey: "hapticsEnabled")
+        settings.darkMode = false
+        settings.notifications = false
+        settings.reminderHour = 9
+        settings.reminderMinute = 0
+        saveAndReschedule()
     }
 }

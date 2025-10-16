@@ -6,25 +6,32 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SignInView: View {
     @StateObject private var auth = AuthViewModel()
-    
+    @Query private var rows: [SettingsItem]
+
     var body: some View {
         Group {
             if let user = auth.user {
-                ContentView(user: user, onSignOut: { auth.signOut() })
+                ContentView(user: user, onSignOut: {
+                    auth.signOut()
+                })
             } else {
                 LoginView(
                     isLoading: auth.isLoading,
                     errorMessage: auth.errorMessage,
-                    onSignIn: { auth.signInWithGoogle() }
+                    onSignIn: {
+                        auth.signInWithGoogle()
+                    }
                 )
             }
+        }
+        .preferredColorScheme((rows.first?.darkMode ?? false) ? .dark : .light)
+        .task {
+            SettingsViewModel.viewModel.requestAuthorization()
         }
     }
 }
 
-#Preview {
-    SignInView()
-}

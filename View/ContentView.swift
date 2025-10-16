@@ -21,6 +21,7 @@ struct ContentView: View {
     @State var isPresentingHabit = false
     @State var isPresentingMood = false
     @State var isPresentingSettings = false
+    @State var isPresentingQuote = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -43,6 +44,17 @@ struct ContentView: View {
                     .buttonStyle(ShadowButtonStyle())
                 NavigationLink(destination: MoodTrackerView(), isActive: $isPresentingMood) { EmptyView() }
             }
+            
+            VStack(alignment: .center, spacing: 50) {
+                Button("Daily Quote") {
+                    isPresentingQuote = true
+                }
+                .fontWeight(.heavy)
+                .buttonStyle(ShadowButtonStyle())
+                NavigationLink(destination: QuotesView(), isActive: $isPresentingQuote) {
+                    EmptyView()
+                }
+            }
             VStack(alignment: .center, spacing: 50) {
                 Button("Settings") {
                     isPresentingSettings = true
@@ -50,14 +62,15 @@ struct ContentView: View {
                     .buttonStyle(ShadowButtonStyle())
                 NavigationLink(destination: SettingsView(), isActive: $isPresentingSettings) { EmptyView() }
             }
-        }.toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("Sign Out", action: onSignOut)
+            VStack(alignment: .center, spacing: 50) {
+                Button("Sign Out") {
+                    onSignOut()
+                }
+                .fontWeight(.heavy)
+                .buttonStyle(ShadowButtonStyle())
             }
         }
     }
 }
 
-#Preview {
-    ContentView(AppUser(id: "EyRkpR2k12hc3bo5xgV6hi3Y4oG3", firstName: "Yunlong", email: "s4099035@student.rmit.edu.au"))
-}
+

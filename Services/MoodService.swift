@@ -71,7 +71,7 @@ class MoodService {
     }
 }
 
-/// Firebase mood model (for reading Firestore data)
+/// Firebase habit model (for reading Firestore data)
 struct MoodEntryFirebase: Identifiable {
     let id: String
     let mood: String

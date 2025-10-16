@@ -10,9 +10,18 @@ import SwiftData
 
 @Model
 final class SettingsItem {
-    var timestamp: Date
+    var darkMode: Bool
+    var notifications: Bool
+    var reminderHour: Int
+    var reminderMinute: Int
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(darkMode: Bool = false,
+         notifications: Bool = false,
+         reminderHour: Int = 9,
+         reminderMinute: Int = 0) {
+        self.darkMode = darkMode
+        self.notifications = notifications
+        self.reminderHour = reminderHour
+        self.reminderMinute = reminderMinute
     }
 }
