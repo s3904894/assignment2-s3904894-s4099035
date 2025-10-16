@@ -15,6 +15,7 @@
 		901025972EA087B10089FB6C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 901025962EA087B10089FB6C /* FirebaseAuth */; };
 		901025992EA087BB0089FB6C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 901025982EA087BB0089FB6C /* FirebaseFirestore */; };
 		9010259B2EA087CC0089FB6C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9010259A2EA087CC0089FB6C /* FirebaseAnalytics */; };
+		901027482EA0BD030089FB6C /* Habood.docc in Sources */ = {isa = PBXBuildFile; fileRef = 901027472EA0BD030089FB6C /* Habood.docc */; };
 		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
 		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901027472EA0BD030089FB6C /* Habood.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Habood.docc; sourceTree = "<group>"; };
 		C851FD262E96869700F6B1F6 /* Habood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +242,7 @@
 		C851FD1D2E96869700F6B1F6 = {
 			isa = PBXGroup;
 			children = (
+				901027472EA0BD030089FB6C /* Habood.docc */,
 				C851FD282E96869700F6B1F6 /* Habood */,
 				C851FD382E9686A000F6B1F6 /* HaboodTests */,
 				C851FD422E9686A000F6B1F6 /* HaboodUITests */,
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901027482EA0BD030089FB6C /* Habood.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
