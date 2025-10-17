@@ -16,11 +16,29 @@
 		901025992EA087BB0089FB6C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 901025982EA087BB0089FB6C /* FirebaseFirestore */; };
 		9010259B2EA087CC0089FB6C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9010259A2EA087CC0089FB6C /* FirebaseAnalytics */; };
 		901027482EA0BD030089FB6C /* Habood.docc in Sources */ = {isa = PBXBuildFile; fileRef = 901027472EA0BD030089FB6C /* Habood.docc */; };
+		901027B32EA1CE9B0089FB6C /* HaboodWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9010279E2EA1CE980089FB6C /* HaboodWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		901027BA2EA1D35E0089FB6C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 901027B92EA1D35E0089FB6C /* FirebaseCore */; };
+		901027BC2EA1D35E0089FB6C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 901027BB2EA1D35E0089FB6C /* FirebaseFirestore */; };
+		908D41D12EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */; };
+		908D41D42EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */; };
+		908D41D52EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */; };
+		908D42292EA1F68800AA823D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */; };
+		908D422B2EA1F91400AA823D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901027A12EA1CE980089FB6C /* SwiftUI.framework */; };
+		908D422C2EA1F91400AA823D /* SwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 901027A12EA1CE980089FB6C /* SwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		908D422E2EA1F91600AA823D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9010279F2EA1CE980089FB6C /* WidgetKit.framework */; };
+		908D422F2EA1F91600AA823D /* WidgetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9010279F2EA1CE980089FB6C /* WidgetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
 		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		901027B12EA1CE9B0089FB6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C851FD1E2E96869700F6B1F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9010279D2EA1CE980089FB6C;
+			remoteInfo = HaboodWidgetExtension;
+		};
 		C851FD362E9686A000F6B1F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C851FD1E2E96869700F6B1F6 /* Project object */;
@@ -37,8 +55,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		901027B42EA1CE9B0089FB6C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				901027B32EA1CE9B0089FB6C /* HaboodWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		908D422D2EA1F91400AA823D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				908D422C2EA1F91400AA823D /* SwiftUI.framework in Embed Frameworks */,
+				908D422F2EA1F91600AA823D /* WidgetKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		901027472EA0BD030089FB6C /* Habood.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Habood.docc; sourceTree = "<group>"; };
+		9010279E2EA1CE980089FB6C /* HaboodWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HaboodWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9010279F2EA1CE980089FB6C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		901027A12EA1CE980089FB6C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		901027BE2EA1EB440089FB6C /* HaboodWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaboodWidgetExtension.entitlements; sourceTree = "<group>"; };
+		908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C851FD262E96869700F6B1F6 /* Habood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +114,13 @@
 				MoodServiceMock.swift,
 			);
 			target = C851FD252E96869700F6B1F6 /* Habood */;
+		};
+		901027B82EA1CE9B0089FB6C /* Exceptions for "HaboodWidget" folder in "HaboodWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9010279D2EA1CE980089FB6C /* HaboodWidgetExtension */;
 		};
 		90811DB82E9852CE001D280B /* Exceptions for "View" folder in "HaboodTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -96,20 +152,6 @@
 			);
 			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
 		};
-		90D2E0FF2E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = C851FD342E9686A000F6B1F6 /* HaboodTests */;
-		};
-		90D2E1002E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = C851FD3E2E9686A000F6B1F6 /* HaboodUITests */;
-		};
 		90D2E1022E9BC09B000C98FA /* Exceptions for "Habood" folder in "Habood" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -136,12 +178,18 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		901027A32EA1CE980089FB6C /* HaboodWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				901027B82EA1CE9B0089FB6C /* Exceptions for "HaboodWidget" folder in "HaboodWidgetExtension" target */,
+			);
+			path = HaboodWidget;
+			sourceTree = "<group>";
+		};
 		C851FD282E96869700F6B1F6 /* Habood */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				90D2E1022E9BC09B000C98FA /* Exceptions for "Habood" folder in "Habood" target */,
-				90D2E0FF2E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodTests" target */,
-				90D2E1002E9BBE78000C98FA /* Exceptions for "Habood" folder in "HaboodUITests" target */,
 			);
 			path = Habood;
 			sourceTree = "<group>";
@@ -198,6 +246,17 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9010279B2EA1CE980089FB6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				908D422B2EA1F91400AA823D /* SwiftUI.framework in Frameworks */,
+				901027BC2EA1D35E0089FB6C /* FirebaseFirestore in Frameworks */,
+				901027BA2EA1D35E0089FB6C /* FirebaseCore in Frameworks */,
+				908D422E2EA1F91600AA823D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C851FD232E96869700F6B1F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +294,8 @@
 		90D2E2CE2EA06433000C98FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9010279F2EA1CE980089FB6C /* WidgetKit.framework */,
+				901027A12EA1CE980089FB6C /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,16 +303,19 @@
 		C851FD1D2E96869700F6B1F6 = {
 			isa = PBXGroup;
 			children = (
+				901027BE2EA1EB440089FB6C /* HaboodWidgetExtension.entitlements */,
 				901027472EA0BD030089FB6C /* Habood.docc */,
 				C851FD282E96869700F6B1F6 /* Habood */,
 				C851FD382E9686A000F6B1F6 /* HaboodTests */,
 				C851FD422E9686A000F6B1F6 /* HaboodUITests */,
+				901027A32EA1CE980089FB6C /* HaboodWidget */,
 				C851FD272E96869700F6B1F6 /* Products */,
 				C851FD7D2E96871D00F6B1F6 /* Services */,
 				C851FD7F2E96871D00F6B1F6 /* ModelView */,
 				C851FD842E96871D00F6B1F6 /* Model */,
 				C851FD8E2E96871D00F6B1F6 /* View */,
 				90D2E2CE2EA06433000C98FA /* Frameworks */,
+				908D41CC2EA1F0FA00AA823D /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,6 +325,7 @@
 				C851FD262E96869700F6B1F6 /* Habood.app */,
 				C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */,
 				C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */,
+				9010279E2EA1CE980089FB6C /* HaboodWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +333,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9010279D2EA1CE980089FB6C /* HaboodWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 901027B72EA1CE9B0089FB6C /* Build configuration list for PBXNativeTarget "HaboodWidgetExtension" */;
+			buildPhases = (
+				9010279A2EA1CE980089FB6C /* Sources */,
+				9010279B2EA1CE980089FB6C /* Frameworks */,
+				9010279C2EA1CE980089FB6C /* Resources */,
+				908D422D2EA1F91400AA823D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				901027A32EA1CE980089FB6C /* HaboodWidget */,
+			);
+			name = HaboodWidgetExtension;
+			packageProductDependencies = (
+				901027B92EA1D35E0089FB6C /* FirebaseCore */,
+				901027BB2EA1D35E0089FB6C /* FirebaseFirestore */,
+			);
+			productName = HaboodWidgetExtension;
+			productReference = 9010279E2EA1CE980089FB6C /* HaboodWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C851FD252E96869700F6B1F6 /* Habood */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C851FD492E9686A000F6B1F6 /* Build configuration list for PBXNativeTarget "Habood" */;
@@ -275,10 +365,12 @@
 				C851FD222E96869700F6B1F6 /* Sources */,
 				C851FD232E96869700F6B1F6 /* Frameworks */,
 				C851FD242E96869700F6B1F6 /* Resources */,
+				901027B42EA1CE9B0089FB6C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				901027B22EA1CE9B0089FB6C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C851FD282E96869700F6B1F6 /* Habood */,
@@ -360,6 +452,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					9010279D2EA1CE980089FB6C = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					C851FD252E96869700F6B1F6 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -394,15 +489,25 @@
 				C851FD252E96869700F6B1F6 /* Habood */,
 				C851FD342E9686A000F6B1F6 /* HaboodTests */,
 				C851FD3E2E9686A000F6B1F6 /* HaboodUITests */,
+				9010279D2EA1CE980089FB6C /* HaboodWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9010279C2EA1CE980089FB6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				908D42292EA1F68800AA823D /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C851FD242E96869700F6B1F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D41D12EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D41D42EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,12 +523,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D41D52EA1F0FA00AA823D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9010279A2EA1CE980089FB6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C851FD222E96869700F6B1F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +562,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		901027B22EA1CE9B0089FB6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9010279D2EA1CE980089FB6C /* HaboodWidgetExtension */;
+			targetProxy = 901027B12EA1CE9B0089FB6C /* PBXContainerItemProxy */;
+		};
 		C851FD372E9686A000F6B1F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C851FD252E96869700F6B1F6 /* Habood */;
@@ -461,6 +580,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		901027B52EA1CE9B0089FB6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HaboodWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HaboodWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HaboodWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.Habood.HaboodWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		901027B62EA1CE9B0089FB6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HaboodWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HaboodWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HaboodWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.Habood.HaboodWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C851FD472E9686A000F6B1F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -589,9 +766,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Habood/Habood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habood/Info.plist;
@@ -600,6 +778,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,9 +797,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Habood/Habood.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habood/Info.plist;
@@ -629,6 +809,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -648,7 +829,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
@@ -667,7 +848,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
@@ -685,7 +866,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodUITests;
@@ -702,7 +883,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9CSS6V8RWH;
+				DEVELOPMENT_TEAM = J4WU5D6SDS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RMIT.HaboodUITests;
@@ -717,6 +898,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		901027B72EA1CE9B0089FB6C /* Build configuration list for PBXNativeTarget "HaboodWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				901027B52EA1CE9B0089FB6C /* Debug */,
+				901027B62EA1CE9B0089FB6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C851FD212E96869700F6B1F6 /* Build configuration list for PBXProject "Habood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -814,6 +1004,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		901027B92EA1D35E0089FB6C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		901027BB2EA1D35E0089FB6C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9010258B2EA084160089FB6C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		C851FDA32E96877600F6B1F6 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -25,7 +25,7 @@ final class MoodTrackerViewModel: ObservableObject {
     
     // Published Properties
     
-    /// The currently selected mood string, e.g. `"😀 Happy"` or `"😢 Sad"`.
+    /// The currently selected mood string, e.g. `" Happy"` or `" Sad"`.
     @Published var selectedMood: String = ""
     
     /// The intensity level for the selected mood (1–5 range). Defaults to 3.
@@ -53,7 +53,7 @@ final class MoodTrackerViewModel: ObservableObject {
     // Mood Options
     
     /// A predefined list of available moods shown to the user.
-    let moods = ["😀 Happy", "😢 Sad", "😡 Angry", "😴 Tired", "😰 Anxious"]
+    let moods = [" Happy", " Sad", " Angry", " Tired", " Anxious"]
     
     /// The current index of the selected mood within the list.
     private var currentIndex = 0
@@ -113,7 +113,7 @@ final class MoodTrackerViewModel: ObservableObject {
     ///
     /// Example:
     /// ```swift
-    /// viewModel.setMood("😀 Happy")
+    /// viewModel.setMood(" Happy")
     /// viewModel.setIntensity(3)
     /// viewModel.saveMood()
     /// ```

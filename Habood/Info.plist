@@ -12,6 +12,16 @@
 				<string>com.googleusercontent.apps.579436201011-7160ptm88qg5ivp44cilav68vqap0k78</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.habood.login</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>habood</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

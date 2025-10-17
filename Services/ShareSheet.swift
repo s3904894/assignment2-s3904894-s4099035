@@ -32,7 +32,7 @@ struct ShareSheet: UIViewControllerRepresentable {
     // Properties
 
     /// The list of items to share (text, images, URLs, etc.).
-    ///
+    /// 分享的内容（文字、图片、URL 等
     /// Example:
     /// ```swift
     /// ShareSheet(activityItems: ["Check out my mood tracker progress!"])
@@ -40,12 +40,13 @@ struct ShareSheet: UIViewControllerRepresentable {
     let activityItems: [Any]
 
     /// Optional custom activity types for the share sheet (default: `nil`).
+    /// 可选的自定义分享类型，默认为空
     let applicationActivities: [UIActivity]? = nil
 
     // UIViewControllerRepresentable Methods
 
     /// Creates the `UIActivityViewController` used to present the share sheet.
-    ///
+    /// 创建并返回系统的分享界面控制器
     /// - Parameter context: The context object provided by SwiftUI.
     /// - Returns: A configured `UIActivityViewController` ready for presentation.
     func makeUIViewController(context: Context) -> UIActivityViewController {
@@ -54,7 +55,7 @@ struct ShareSheet: UIViewControllerRepresentable {
     }
 
     /// Updates the existing `UIActivityViewController` when SwiftUI state changes.
-    ///
+    /// 当 SwiftUI 状态变化时更新
     /// - Parameters:
     ///   - vc: The existing `UIActivityViewController` instance.
     ///   - context: Provides information about the current SwiftUI environment.

@@ -2,192 +2,286 @@
 //  MoodTrackerView.swift
 //  Habood
 //
-//  Created by Stephan Karatselios on 28/8/2025.
-//  Modified by Yunlong Chen on 29/8/2025
+//Created by Stephan Karatselios on 28/8/2025.
+//Created by Yunlong Chen on 2025/10/17.
 //
-
 import SwiftUI
-import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
-import UIKit
+import WidgetKit
 
-/// The main SwiftUI view that allows users to record, view, and share their moods.
+// MARK: - MoodTrackerView
+/// A minimalist and Apple-style SwiftUI interface for recording, saving, and sharing user moods.
 ///
-/// The **MoodTrackerView** provides an interactive user interface for:
-/// - Selecting moods using **swipe gestures**
-/// - Adjusting mood intensity using **up/down drag gestures**
-/// - Saving moods to **Firebase Firestore**
-/// - Viewing mood history through a navigation link
-/// - Sharing mood via a **UIKit ShareSheet**
+/// The `MoodTrackerView` provides a smooth, distraction-free experience inspired by the iOS Settings design.
+/// It integrates with Firebase Firestore and WidgetKit to synchronize and display user moods.
 ///
-/// This is the central user-facing feature of the **Habood** wellbeing app.
+/// ## Features
+/// - Select mood from a dropdown picker
+/// - Adjust mood intensity using a clean slider
+/// - Save moods to Firebase Firestore
+/// - Share mood via system share sheet (UIKit)
+/// - View previously saved moods in history
 ///
-/// - SeeAlso: `MoodTrackerViewModel`, `MoodHistoryView`, `ShareSheet`
-/// - Author: Yunlong Chen
+/// ## Design Philosophy
+/// - Clean and calm Apple aesthetic
+/// - Rounded white components with subtle shadows
+/// - Adaptive background using system colors
+///
+/// - Author: **Yunlong Chen**
+/// - Version: 1.0
+/// - Date: October 2025
 struct MoodTrackerView: View {
-    //  Properties
-
-    /// The ViewModel that manages logic, mood state, and Firebase saving.
-    @StateObject private var viewModel = MoodTrackerViewModel()
-
-    /// Controls navigation to the Mood History view.
+    
+    // MARK: - Properties
+    
+    /// The currently selected mood value (e.g., “Happy” or “Sad”).
+    @State private var selectedMood: String = ""
+    
+    /// The numeric mood intensity value (range: 1–5).
+    @State private var intensity: Double = 3
+    
+    /// Stores the user-facing status message (success or error).
+    @State private var saveMessage: String?
+    
+    /// Controls navigation to the Mood History screen.
     @State private var isShowingHistory = false
-
-    /// Tracks drag offset used for gesture detection.
-    @State private var dragOffset: CGSize = .zero
-
-    /// Controls whether the UIKit ShareSheet is presented.
-    @State private var showShare = false
-
-    /// The text content to share in the ShareSheet.
-    @State private var shareText = ""
-
-    /// The list of available mood options that the user can swipe between.
-    let moods = ["😊 Happy", "😢 Sad", "😡 Angry", "😴 Tired", "😰 Anxious"]
-
-    //  Main View Body
+    
+    /// Controls presentation of the system share sheet.
+    @State private var isShowingShareSheet = false
+    
+    /// A predefined list of moods available for user selection.
+    private let moods = [" Happy", " Sad", " Angry", " Tired", " Anxious"]
+    
+    /// A reference to the Firestore database instance.
+    private let db = Firestore.firestore()
+    
+    // MARK: - Body
+    /// The main user interface layout for the mood tracker screen.
+    ///
+    /// Uses a scrollable vertical layout that displays:
+    /// - Mood picker
+    /// - Intensity slider
+    /// - Three main action buttons (Save, Share, View History)
     var body: some View {
-        VStack(spacing: 25) {
-
-            //  Title Section
-            Text("Mood Tracker")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 40)
-
-            Text("How are you feeling today?")
-                .font(.headline)
-
-            //  Selected Mood Display
-            Text(viewModel.selectedMood.isEmpty ? "No mood selected" : viewModel.selectedMood)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.blue)
-                .padding(.bottom, 10)
-
-            //  Mood Selector with Swipe Gesture
-            VStack {
-                Text("Swipe left or right to change mood")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-
-                Rectangle()
-                    .fill(Color.gray.opacity(0.15))
-                    .frame(height: 100)
-                    .cornerRadius(12)
-                    .overlay(
-                        Text(viewModel.selectedMood.isEmpty ? "😊 Happy" : viewModel.selectedMood)
-                            .font(.title)
-                            .bold()
-                    )
-                    /// Detects horizontal swipes to change mood.
-                    /// - Left Swipe: moves to the next mood.
-                    /// - Right Swipe: moves to the previous mood.
-                    .gesture(
-                        DragGesture()
-                            .onEnded { gesture in
-                                let index = moods.firstIndex(of: viewModel.selectedMood.isEmpty ? "😊 Happy" : viewModel.selectedMood) ?? 0
-                                if gesture.translation.width < -50 {
-                                    // Swipe left → next mood
-                                    let nextIndex = (index + 1) % moods.count
-                                    viewModel.setMood(moods[nextIndex])
-                                } else if gesture.translation.width > 50 {
-                                    // Swipe right → previous mood
-                                    let prevIndex = (index - 1 + moods.count) % moods.count
-                                    viewModel.setMood(moods[prevIndex])
-                                }
-                            }
-                    )
-                    .padding(.horizontal, 40)
-            }
-
-            //  Mood Intensity Controls
-            VStack {
-                Text("Intensity: \(viewModel.intensity)")
-                    .font(.subheadline)
-
-                /// A slider that controls the mood intensity value (1–5).
-                Slider(value: Binding(
-                    get: { Double(viewModel.intensity) },
-                    set: { viewModel.setIntensity(Int($0)) }
-                ), in: 1...5, step: 1)
-                .padding(.horizontal, 40)
-
-                Text("Drag up or down to adjust intensity")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-            }
-            /// Detects vertical drag gestures to adjust mood intensity.
-            /// - Up Drag: Increases intensity.
-            /// - Down Drag: Decreases intensity.
-            .gesture(
-                DragGesture()
-                    .onEnded { gesture in
-                        if gesture.translation.height < -30 {
-                            viewModel.setIntensity(viewModel.intensity + 1)
-                        } else if gesture.translation.height > 30 {
-                            viewModel.setIntensity(viewModel.intensity - 1)
-                        }
-                    }
-            )
-
-            //  Save Mood Button
-            Button(action: {
-                viewModel.saveMood()
-            }) {
-                Text("Save Mood")
-                    .fontWeight(.bold)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding(.horizontal, 40)
-
-            //  UIKit ShareSheet Integration
-            Button("Share My Mood") {
-                /// Prepares the text that will be shared using UIKit’s ShareSheet.
-                shareText = viewModel.selectedMood.isEmpty
-                    ? "I'm not sure how I feel today."
-                    : "Today I feel \(viewModel.selectedMood) with intensity \(viewModel.intensity)/5."
-                showShare = true
-            }
-            .fontWeight(.bold)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.orange)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-            .padding(.horizontal, 40)
-            /// Presents the UIKit share sheet (UIActivityViewController).
-            .sheet(isPresented: $showShare) {
-                ShareSheet(activityItems: [shareText])
-            }
-
-            //  Navigation to Mood History
-            NavigationLink(destination: MoodHistoryView(), isActive: $isShowingHistory) {
-                Button("View Mood History") {
-                    isShowingHistory = true
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 28) {
+                    
+                    // MARK: Mood Picker Section
+                    moodPickerSection
+                    
+                    // MARK: Intensity Slider
+                    intensitySliderSection
+                    
+                    // MARK: Buttons Section
+                    buttonsSection
                 }
-                .fontWeight(.bold)
                 .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                .navigationTitle("Mood Tracker")
+                .navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $isShowingHistory) {
+                    MoodHistoryView()
+                }
+                .sheet(isPresented: $isShowingShareSheet) {
+                    if !selectedMood.isEmpty {
+                        let shareText = "Today I feel \(selectedMood) with intensity \(Int(intensity))/5."
+                        ActivityViewController(activityItems: [shareText])
+                    }
+                }
+                .alert("Info", isPresented: .constant(saveMessage != nil)) {
+                    Button("OK") { saveMessage = nil }
+                } message: {
+                    Text(saveMessage ?? "")
+                }
             }
-            .padding(.horizontal, 40)
-
-            Spacer()
+            .scrollContentBackground(.hidden)
+            .background(Color(UIColor.systemGroupedBackground))
         }
-        .padding(.bottom, 30)
-        /// When the view appears, initializes the default mood.
-        .onAppear {
-            if viewModel.selectedMood.isEmpty {
-                viewModel.setMood(moods[0])
+    }
+    
+    // MARK: - UI Components
+    
+    /// Displays the mood picker section with a labeled dropdown menu.
+    ///
+    /// Allows users to select a mood from predefined options.
+    private var moodPickerSection: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("MOOD")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+            
+            HStack {
+                Text("Select your mood")
+                    .foregroundColor(.primary)
+                Spacer()
+                
+                Picker("", selection: $selectedMood) {
+                    ForEach(moods, id: \.self) { mood in
+                        Text(mood).tag(mood)
+                    }
+                }
+                .pickerStyle(.menu)
+                .tint(.gray)
+            }
+            .padding(.horizontal, 16)
+            .frame(height: 44)
+            .background(Color(UIColor.systemBackground))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(UIColor.separator), lineWidth: 0.4)
+            )
+        }
+    }
+    
+    /// Displays the mood intensity slider and level indicator.
+    ///
+    /// Allows users to select intensity levels from 1 to 5 with smooth animation.
+    private var intensitySliderSection: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("INTENSITY")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Slider(value: $intensity, in: 1...5, step: 1)
+                    .tint(Color(UIColor.systemBlue))
+                Text("Level: \(Int(intensity))/5")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            .background(Color(UIColor.systemBackground))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(UIColor.separator), lineWidth: 0.4)
+            )
+        }
+    }
+    
+    /// Displays all main action buttons in a vertical stack.
+    ///
+    /// Includes:
+    /// - “Save Mood”
+    /// - “Share My Mood”
+    /// - “View Mood History”
+    private var buttonsSection: some View {
+        VStack(spacing: 12) {
+            MoodButton(title: "Save Mood") {
+                saveMood()
+            }
+            MoodButton(title: "Share My Mood") {
+                isShowingShareSheet = true
+            }
+            MoodButton(title: "View Mood History") {
+                isShowingHistory = true
+            }
+        }
+    }
+    
+    // MARK: - Firestore Saving
+    /// Saves the current mood and intensity to Firestore under the logged-in user's account.
+    ///
+    /// - Important: The user must be authenticated via Firebase Authentication.
+    ///
+    /// If saving succeeds:
+    /// - Displays confirmation alert (`Mood saved successfully!`)
+    /// - Notifies WidgetKit to reload mood data via:
+    /// ```swift
+    /// WidgetCenter.shared.reloadAllTimelines()
+    /// ```
+    ///
+    /// If saving fails:
+    /// - Displays an error alert
+    /// - Logs details in the console
+    private func saveMood() {
+        guard !selectedMood.isEmpty else {
+            saveMessage = "Please select a mood."
+            return
+        }
+        guard let user = Auth.auth().currentUser else {
+            saveMessage = "Please log in to save moods."
+            return
+        }
+        
+        let data: [String: Any] = [
+            "userId": user.uid,
+            "mood": selectedMood,
+            "intensity": Int(intensity),
+            "createdAt": Timestamp(date: Date())
+        ]
+        
+        db.collection("moods").addDocument(data: data) { error in
+            if let error = error {
+                print("❌ Failed to save mood: \(error.localizedDescription)")
+                saveMessage = "Failed to save mood."
+            } else {
+                print(" Mood saved successfully for user \(user.uid)")
+                saveMessage = "Mood saved successfully!"
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
 }
+
+// MARK: - MoodButton
+/// A reusable button component used across the mood tracker interface.
+///
+/// Displays a system-styled rounded button with a light shadow and blue accent text.
+///
+/// Example:
+/// ```swift
+/// MoodButton(title: "Save Mood") {
+///     saveMood()
+/// }
+/// ```
+private struct MoodButton: View {
+    /// The button label text.
+    let title: String
+    
+    /// The action performed when the button is tapped.
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .foregroundColor(Color(UIColor.systemBlue))
+        }
+        .buttonStyle(.plain)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(UIColor.systemBackground))
+                .shadow(color: .black.opacity(0.05), radius: 1, x: 0, y: 1)
+        )
+    }
+}
+
+// MARK: - ActivityViewController
+/// A SwiftUI wrapper for UIKit’s `UIActivityViewController`.
+///
+/// This enables mood sharing through the native iOS Share Sheet.
+///
+/// Example:
+/// ```swift
+/// ActivityViewController(activityItems: ["Today I feel  Happy!"])
+/// ```
+struct ActivityViewController: UIViewControllerRepresentable {
+    /// The list of items to share (e.g., text, images, or URLs).
+    var activityItems: [Any]
+    
+    /// Creates the UIKit controller used to present the share sheet.
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    }
+    
+    /// Updates the controller when SwiftUI state changes (no dynamic update needed here).
+    func updateUIViewController(_ vc: UIActivityViewController, context: Context) {}
+}
+
