@@ -31,6 +31,7 @@ struct SignInView: View {
         .preferredColorScheme((rows.first?.darkMode ?? false) ? .dark : .light)
         .task {
             SettingsViewModel.viewModel.requestAuthorization()
+            
         }
     }
 }

@@ -3,12 +3,23 @@
 //  Habood
 //
 //  Created by Yunlong Chen on 2025/10/8.
-//
+//  Documented by Yunlong Chen
+
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-/// ViewModel for managing mood tracking and Firebase sync
+/// The ViewModel that manages all logic for mood tracking and Firebase synchronization.
+///
+/// This class stores the user's current mood and intensity,
+/// handles gesture-based mood selection, and synchronizes mood data
+/// with Firebase Firestore using the `MoodService`.
+///
+/// It is written using the **MVVM (Model-View-ViewModel)** pattern,
+/// ensuring a clean separation between the UI (`MoodTrackerView`) and business logic.
+///
+/// - SeeAlso: `MoodService`, `MoodTrackerView`
+
 @MainActor
 final class MoodTrackerViewModel: ObservableObject {
     @Published var selectedMood: String = ""

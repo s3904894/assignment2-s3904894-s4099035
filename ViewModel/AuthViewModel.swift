@@ -3,9 +3,20 @@
 //  Habood
 //
 //  Created by Stephan Karatselios on 8/10/2025.
-//
+//  Documented by Yunlong Chen
 
 import Foundation
+
+
+/// A `ViewModel` class that manages authentication state and actions in the Habood app.
+///
+/// `AuthViewModel` provides an interface between the user interface (SwiftUI)
+/// and the underlying `AuthService`, which handles Google Sign-In and Firebase authentication.
+///
+/// This class observes changes in user authentication state and provides data binding
+/// for login, logout, and error handling in SwiftUI.
+///
+
 
 @MainActor
 final class AuthViewModel: ObservableObject {

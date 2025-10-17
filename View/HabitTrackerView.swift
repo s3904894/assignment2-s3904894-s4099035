@@ -51,7 +51,6 @@ struct HabitTrackerView: View {
             }
         }
         .onAppear {
-            // inject modelContext into VM if needed
             viewModel.modelContext = context
             viewModel.fetchHabits()
         }

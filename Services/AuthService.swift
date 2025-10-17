@@ -54,8 +54,6 @@ final class AuthService: AuthServicing {
         GIDSignIn.sharedInstance.signOut()
     }
     
-    // MARK: - Helpers
-    
     private static var rootViewController: UIViewController? {
         UIApplication.shared.connectedScenes
             .compactMap { $0 as? UIWindowScene }

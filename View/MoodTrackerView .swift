@@ -13,7 +13,11 @@ struct MoodTrackerView: View {
     @StateObject private var viewModel = MoodTrackerViewModel()
     @State private var isShowingHistory = false
     @State private var dragOffset: CGSize = .zero
+    /// Controls whether the UIKit ShareSheet is presented.
+    @State private var showShare = false
 
+    /// The text content to share in the ShareSheet.
+    @State private var shareText = ""
     // Available mood options
     let moods = ["😊 Happy", "😢 Sad", "😡 Angry", "😴 Tired", "😰 Anxious"]
 
@@ -110,6 +114,26 @@ struct MoodTrackerView: View {
                     .cornerRadius(10)
             }
             .padding(.horizontal, 40)
+            
+            //  UIKit ShareSheet Integration
+                        Button("Share My Mood") {
+                            /// Prepares the text that will be shared using UIKit’s ShareSheet.
+                            shareText = viewModel.selectedMood.isEmpty
+                                ? "I'm not sure how I feel today."
+                                : "Today I feel \(viewModel.selectedMood) with intensity \(viewModel.intensity)/5."
+                            showShare = true
+                        }
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal, 40)
+                        /// Presents the UIKit share sheet (UIActivityViewController).
+                        .sheet(isPresented: $showShare) {
+                            ShareSheet(activityItems: [shareText])
+                        }
 
             // Navigate to mood history
             NavigationLink(destination: MoodHistoryView(), isActive: $isShowingHistory) {
