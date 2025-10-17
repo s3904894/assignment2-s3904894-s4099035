@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C83363A62EA193F3003C9C0B /* Habood.docc in Sources */ = {isa = PBXBuildFile; fileRef = C83363A52EA193F3003C9C0B /* Habood.docc */; };
+		C83363C32EA25BAB003C9C0B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83363C12EA25BAB003C9C0B /* Info.plist */; };
+		C83363C42EA25BAB003C9C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83363BE2EA25BAB003C9C0B /* Assets.xcassets */; };
+		C83363C52EA25BAB003C9C0B /* HaboodWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83363BF2EA25BAB003C9C0B /* HaboodWidget.swift */; };
+		C83363C62EA25BAB003C9C0B /* HaboodWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83363C02EA25BAB003C9C0B /* HaboodWidgetControl.swift */; };
+		C83363C72EA25BAB003C9C0B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83363BD2EA25BAB003C9C0B /* AppIntent.swift */; };
 		C851FDA42E96877600F6B1F6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA32E96877600F6B1F6 /* GoogleSignIn */; };
 		C851FDA62E96877600F6B1F6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA52E96877600F6B1F6 /* GoogleSignInSwift */; };
 		C851FDA92E96881100F6B1F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C851FDA82E96881100F6B1F6 /* FirebaseAuth */; };
@@ -34,6 +39,12 @@
 
 /* Begin PBXFileReference section */
 		C83363A52EA193F3003C9C0B /* Habood.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Habood.docc; sourceTree = "<group>"; };
+		C83363BD2EA25BAB003C9C0B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		C83363BE2EA25BAB003C9C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C83363BF2EA25BAB003C9C0B /* HaboodWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaboodWidget.swift; sourceTree = "<group>"; };
+		C83363C02EA25BAB003C9C0B /* HaboodWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaboodWidgetControl.swift; sourceTree = "<group>"; };
+		C83363C12EA25BAB003C9C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C83363C82EA25BBE003C9C0B /* HaboodWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaboodWidgetExtension.entitlements; sourceTree = "<group>"; };
 		C851FD262E96869700F6B1F6 /* Habood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD352E9686A000F6B1F6 /* HaboodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C851FD3F2E9686A000F6B1F6 /* HaboodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaboodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,9 +198,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C83363C22EA25BAB003C9C0B /* HaboodWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C83363BD2EA25BAB003C9C0B /* AppIntent.swift */,
+				C83363BE2EA25BAB003C9C0B /* Assets.xcassets */,
+				C83363BF2EA25BAB003C9C0B /* HaboodWidget.swift */,
+				C83363C02EA25BAB003C9C0B /* HaboodWidgetControl.swift */,
+				C83363C12EA25BAB003C9C0B /* Info.plist */,
+			);
+			path = HaboodWidget;
+			sourceTree = "<group>";
+		};
 		C851FD1D2E96869700F6B1F6 = {
 			isa = PBXGroup;
 			children = (
+				C83363C82EA25BBE003C9C0B /* HaboodWidgetExtension.entitlements */,
+				C83363C22EA25BAB003C9C0B /* HaboodWidget */,
 				C83363A52EA193F3003C9C0B /* Habood.docc */,
 				C851FD282E96869700F6B1F6 /* Habood */,
 				C851FD382E9686A000F6B1F6 /* HaboodTests */,
@@ -341,6 +366,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83363C32EA25BAB003C9C0B /* Info.plist in Resources */,
+				C83363C42EA25BAB003C9C0B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +393,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83363A62EA193F3003C9C0B /* Habood.docc in Sources */,
+				C83363C52EA25BAB003C9C0B /* HaboodWidget.swift in Sources */,
+				C83363C62EA25BAB003C9C0B /* HaboodWidgetControl.swift in Sources */,
+				C83363C72EA25BAB003C9C0B /* AppIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

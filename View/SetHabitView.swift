@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+/**
+ Screen to create a new habit.
+
+ ## Overview
+ Provides fields for habit name and frequency.
+ Persists a habit via the habit service or view model.
+
+ ## Validation
+ - Name must be non-empty after trimming whitespace.
+
+ ## User Flows
+ - Set: enter name, pick frequency, confirm.
+ - Back: dismiss without saving.
+ */
+
 struct SetHabitView: View {
     @EnvironmentObject var viewModel: HabitTrackerViewModel
     @Environment(\.dismiss) private var dismiss

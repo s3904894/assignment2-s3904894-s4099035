@@ -7,6 +7,21 @@
 import SwiftUI
 import SwiftData
 
+/**
+ User settings screen.
+
+ ## Overview
+ Displays and updates app preferences stored with SwiftData.
+
+ ## Responsibilities
+ - Load settings on appear.
+ - Bind toggles and inputs to the model.
+ - Persist changes.
+
+ ## Persistence
+ Uses SwiftData for local settings only.
+ */
+
 struct SettingsView: View {
     @Environment(\.modelContext) private var context
     @Query private var rows: [SettingsItem]

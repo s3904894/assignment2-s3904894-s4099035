@@ -8,6 +8,16 @@
 import Foundation
 import SwiftData
 
+/**
+ SwiftData-backed settings entity.
+
+ ## Overview
+ Stores local-only preferences used by SettingsView.
+
+ ## Persistence
+ Managed with SwiftData `ModelContext`.
+ */
+
 @Model
 final class SettingsItem {
     var darkMode: Bool

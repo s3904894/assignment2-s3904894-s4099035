@@ -11,6 +11,18 @@ import FirebaseCore
 import GoogleSignIn
 import UIKit
 
+/**
+ Authentication helper.
+
+ ## Responsibilities
+ - Start sign-in flow.
+ - Handle user cancelation.
+ - Provide sign-out.
+
+ ## UX
+ Cancelation should be treated as non-fatal and leave the user on the current screen.
+ */
+
 protocol AuthServicing {
     var currentUser: AppUser? { get }
     func signInWithGoogle() async throws -> AppUser

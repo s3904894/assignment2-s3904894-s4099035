@@ -7,7 +7,17 @@
 
 import SwiftUI
 
-// Daily Quote screen using ZenQuotes API
+/**
+ Provides random motivational quotes.
+
+ ## Behavior
+ - Local bundle or remote source.
+ - Exposes a simple fetch API for the Quotes view.
+
+ ## Caching
+ Optional in-memory cache to reduce repeated fetches.
+ */
+
 struct QuotesView: View {
     @State private var quote: String = "Fetching quote..."
     @State private var author: String = ""

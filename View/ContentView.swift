@@ -6,6 +6,17 @@
 //
 
 import SwiftUI
+/**
+ App entry point view.
+
+ ## Responsibilities
+ - Hosts the root navigation.
+ - Presents links to Habit, Mood, Quotes, and Settings features.
+
+ ## See Also
+ - ``SetHabitView``
+ - ``SettingsView``
+ */
 
 struct ContentView: View {
     

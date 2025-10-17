@@ -8,6 +8,17 @@
 import Foundation
 import UserNotifications
 
+/**
+ State and actions for SettingsView.
+
+ ## Responsibilities
+ - Load and persist user preferences via SwiftData.
+ - Expose simple bindings for the view.
+
+ ## Notes
+ Only Settings uses SwiftData; other features use Firebase services.
+ */
+
 enum HabitFrequency: String {
     case Daily, Weekly, Fortnightly, Monthly
 }

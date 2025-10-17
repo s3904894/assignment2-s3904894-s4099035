@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+/**
+ List of saved habits.
+
+ ## Overview
+ Shows existing habits and supports refresh, delete, and navigation to create.
+
+ ## Interactions
+ - Pull or button to fetch habits.
+ - Swipe/delete to remove a habit.
+ - Add to open creation UI.
+ */
+
+
 struct HabitTrackerView: View {
     @Environment(\.modelContext) private var context
     @StateObject private var viewModel = HabitTrackerViewModel()

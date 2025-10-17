@@ -7,6 +7,23 @@
 import Foundation
 import SwiftData
 
+/**
+ State holder for the habit list and creation flow.
+
+ ## Properties
+ - ``habits``: in-memory list from the service.
+ - ``isLoading`` and ``errorMessage``: fetch state.
+ - ``habitName`` and ``frequencyIndex``: creation inputs.
+
+ ## Methods
+ - ``fetchHabits()``: loads from the backing service.
+ - ``saveHabit(completion:)``: validates and creates.
+
+ ## Threading
+ Marked `@MainActor` to update UI-bound state safely.
+ */
+
+
 @MainActor
 final class HabitTrackerViewModel: ObservableObject {
     

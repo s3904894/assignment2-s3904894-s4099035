@@ -7,7 +7,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-/// Service for managing mood data in Firebase Firestore
+
+
 class MoodService {
     private let db = Firestore.firestore()
 
